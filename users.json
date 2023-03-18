@@ -1,0 +1,24 @@
+[
+  {
+    "firstName": "Shreyansh ",
+    "lastName": "sahu",
+    "email": "shreyanshsahu15@gmail.com",
+    "password": "$2b$10$h3bf5ubvMh3ms1iDgs4gIu9G7qRUKwWzdyfiJswkCSfqCGvRRKhae",
+    "verified": true,
+    "mailToken": 1677747754576,
+    "cart": [
+      {
+        "count": 1
+      }
+    ]
+  },
+  {
+    "firstName": "Someone ",
+    "lastName": "sahu",
+    "email": "whoever@gmail.com",
+    "password": "$2b$10$yMR2YEvy4g2ukvVZEhlCr.FKkzLuS.6mIgvGT6BoaM5oHhTFpG9vK",
+    "verified": true,
+    "mailToken": 16767747754576,
+    "cart": []
+  }
+]

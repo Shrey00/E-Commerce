@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+    
+    <div class="h-[100vh] bg-[#F6FBF4] flex align-middle justify-center items-center">
+        <div class='h-[25rem] border-[1px] border-green-300 w-[30rem] rounded-md'>
+            <h1 class="text-center text-green-400 text-2xl mb-8 mt-4">Login to your Account</h1>
+            <form method='POST' action='/login' enctype="application/x-www-form-urlencoded">
+                <input class="h-8 p-2 w-80 mt-6 ml-20 border-[2px] rounded-full focus:outline-none focus:border-green-300
+                " type='email' name='email' placeholder='E-mail' required />
+                <input
+                    class="h-8 p-2 w-80 mt-6 ml-20 border-[2px] rounded-full focus:outline-none focus:border-green-300"
+                    type='password' name='password' placeholder='Password' required />
+                <div class='block ml-48'>
+                    <button id='submitKaro' type = 'submit' class='bg-green-300 px-8 py-2 rounded-md my-4'>Login</button>
+                </div>
+                <div class='block text-center'>
+                    <p><a id='forgotPassword' class=' text-blue-500' href = "http://localhost:5000/forgotPassword">Forgot password?</a></p>
+                </div>
+            </form>
+            <div>
+                <p class='text-center'>if you don't have an account, please signup</p>
+                <!-- <button id='signupPage' class=''></button> -->
+                <div class='flex justify-center'>
+                    <a href="http://localhost:5000/signup"><button id='signup'
+                            class='bg-green-300 px-2 rounded-md '>Signup</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    // const email = document.getElementById('email');
+    // const password = document.getElementById('password');
+
+    // document.getElementById('signup').addEventListener('click', async () => {
+    //     console.log('click to hua hai')
+    //     const response = await fetch('/signup');
+    //     console.log(response)
+    // })
+
+    // async function reqSignup() {
+    //     if (firstName && lastName && email && password) {
+    //         const response = await fetch('/login', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/x-www-form-urlencoded '
+    //             },
+    //             body: JSON.stringify({ firstName, lastName, email, password })
+    //         });
+    //     }
+    // }
+    // document.getElementById('submitKaro').addEventListener('click', () => {
+    //     // reqSignup();
+    // })
+
+</script>
+
+</html>

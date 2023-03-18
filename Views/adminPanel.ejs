@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Admin Panel </title>
+</head>
+
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+
+    <div class="min-h-[80%] w-[92%] m-auto">
+        <h1> </h1>
+        <form method="GET" action='/adminPanel/addProduct'>
+            <button class="text-green-800 font-bold border-2 border-green-800 rounded-md px-8 py-4 hover:bg-green-800 hover:text-white px-2 m-2">Add new product</button>
+        </form>
+
+        <h3 class="text-2xl p-2">Hey <%=firstName%>, these are the products you have added</h3>
+        <ul class="h-[100%] flex flex-wrap">
+            <%for(var i=0 ;i<products.length; ++i){ %>
+                <li id="<%=products[i]._id%>"
+                    class="min-h-[23rem] w-[23rem]  rounded-md spacing-2 m-2 border-[1px] p-4 shadow-md font-bold">
+                    <div class="flex justify-center content-center rounded-md">
+                        <img class="h-[15rem]" src="<%=products[i].image%>" />
+                    </div>
+                    <div class="flex justify-between p-2">
+                        <h1 class="break-all mx-2 text-lg">
+                            <%= products[i].name.length>25? products[i].name.substr(0,24)+ "..." : products[i].name%>
+                        </h1>
+                        <h1 class="mx-2">
+                            Rs.<%= products[i].price %>
+                        </h1>
+                    </div>
+                    <div class = "flex justify-between p-2">
+                        <h1 class = "mx-2">Quantity</h1>
+                        <h1 class="mx-2">
+                            <%= products[i].quantity %>
+                        </h1>
+                    </div>
+                    <div class="flex justify-center">
+                        <button onclick="handlePop(`<%=JSON.stringify(products[i])%>`)"
+                            class="text-green-800 font-bold border-2 border-green-800 rounded-full px-6 py-2 hover:bg-green-800 hover:text-white px-2 m-2"
+                            id=<%=i %>>View Details</button>
+                        <button onclick="handleEdit(`<%=JSON.stringify(products[i])%>`)"
+                            class="text-green-800 font-bold border-2 border-green-800 rounded-full px-6 py-2 hover:bg-green-800 hover:text-white px-2 m-2"
+                            id="<%=products[i]._id%>">Edit</button>
+                        <!-- <button onclick="addToCart('<%= products[i] %>')"
+                                class="bg-green-400 rounded-md hover:bg-green-500 px-2 m-2" id=<%=i %>>Add to
+                                cart</button> -->
+                    </div>
+                </li>
+                <%}%>
+        </ul>
+    </div>
+</body>
+<style>
+    .buttons {
+        padding: 5px 10px;
+        background-color: lightgreen;
+        border-radius: 4px;
+        margin: 5px;
+    }
+</style>
+<script>
+
+     
+    const handlePop = (product) => {
+        // console.log(product)
+        product = JSON.parse(product)
+        const { _id, name, price, detail, quantity, image } = product;
+        const popup = `<div id = 'pop-${_id}' class="pop p-4 bg-white shadow-2xl rounded-lg fixed border-2 top-[8rem] left-[10rem] right-[10rem] bottom-[8rem] overflow-auto"
+                                id="pop-<%=i%>">
+                                <div class="font-bold text-xl hover:cursor-pointer flex justify-left" id="close-<%=i%>"
+                                    onclick="this.parentNode.remove();">
+                                    X
+                                </div>
+                                <div class="flex justify-center content-center rounded-md">
+                                    <img class="h-[25rem]" src = "${image}"/>
+                                </div>
+                                <div>
+                                    <h1 class="text-center font-bold text-2xl">
+                                         ${name} 
+                                    </h1>
+                                </div>
+                                <div class = "text-md p-8">
+                                    <p>
+                                        ${detail}
+                                    </p>
+                                </div>
+                        </div>`
+        const div = document.createElement('div')
+        div.innerHTML = popup;
+        document.body.appendChild(div);
+    }
+
+    const handleEdit = (product) => {
+        // console.log(product)
+        product = JSON.parse(product)
+        const { _id, name, price, detail, quantity, image } = product;
+        const popup = `<div id = 'pop-${_id}' class="pop p-4 bg-white shadow-2xl rounded-lg fixed border-2 top-[8rem] left-[10rem] right-[10rem] bottom-[8rem] overflow-auto"
+                                id="pop-<%=i%>">
+                                <div class="font-bold text-xl hover:cursor-pointer flex justify-left" id="close-<%=i%>"
+                                    onclick="this.parentNode.remove();">
+                                    X
+                                </div>
+                                <div class="flex justify-center content-center rounded-md">
+                                    <img class="h-[25rem]" src = "${image}"/>
+                                </div>
+                                <div>
+                                    <h1 class="text-center font-bold text-2xl">
+                                         ${name} 
+                                    </h1>
+                                </div>
+                                <div class = "text-md p-8">
+                                    <p>
+                                        ${detail}
+                                    </p>
+                                </div>
+                                <div>
+                                    <form class = " flex flex-col justify-center items-center" method = "POST" action = "/adminPanel/updateProduct">
+                                        <div class = "text-xl">
+                                            <label class = "font-bold mx-2">Name  </label>
+                                            <input class = "outline-none border-[1px] border-green-800 focus:border-2 m-2 rounded-md p-2" type = "text" name = "name" value = "${name}" placeholder = "Product Name"/>
+                                        </div> 
+                                        <div class = "text-xl">  
+                                            <label class = "font-bold mx-2">Price  </label>
+                                            <input class = "outline-none border-[1px] border-green-800 focus:border-2 m-2 rounded-md p-2" type = "number" name = "price" value = "${price}" placeholder = "Product Price"/>
+                                        </div> 
+                                        <div class = "text-xl">
+                                            <label class = "font-bold mx-2">Quantity  </label>
+                                            <input class = "outline-none border-[1px] border-green-800 focus:border-2 m-2 rounded-md p-2" type = "number" name = "quantity" value = "${quantity}" placeholder = "Product Quantity"/>
+                                        </div> 
+                                        <div class = "text-xl">
+                                            <label class = "font-bold mx-2">Details  </label>
+                                            <input class = "outline-none border-[1px] border-green-800 focus:border-2 m-2 rounded-md p-2" type = "text" name = "detail" value = "${detail}" placeholder = "Product Details"/>
+                                        </div> 
+                                        <div class = "text-xl">
+                                            <input type = "hidden" name = "_id" value = "${_id}" />
+                                        </div> 
+                                        <button type = "submit" class = "text-green-800 font-bold border-2 border-green-800 rounded-full hover:bg-green-800 hover:text-white px-4 py-2 m-2">Submit</button>
+                                    </form>
+                                    <div>
+                                        <form method = "POST" action = "/adminPanel/deleteProduct" class = "flex justify-center" >
+                                            <input type = "hidden" name = "_id" value = "${_id}" />
+                                            <button type = "submit" class = "text-red-500 font-bold border-2 border-red-500 rounded-full px-6 py-2 hover:bg-red-500 hover:text-white px-2 m-2 ">Delete Product<button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>`
+        const div = document.createElement('div')
+        div.innerHTML = popup;
+        document.body.appendChild(div);
+    }
+
+    // const close = (_id)=>
+    // {
+    //     document.getElementById(`pop-${_id}`).remove();
+    // }
+</script>
+
+</html>

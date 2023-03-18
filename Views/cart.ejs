@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+
+    <div>
+        <div class="min-h-[80%] w-[92%] m-auto">
+            <h1 class="font-bold text-3xl m-4">
+                Products you've added in your Cart
+            </h1>
+            <h1 class="text-xl font-bold">Total : </h1>
+            <input id="sumTotal" type="number" disabled />
+            <ul class="h-[100%] flex flex-wrap">
+                <%if(cartItems.length){ %>
+
+                    <%for(var i=0 ;i<cartItems.length; ++i){ %>
+                        <li class="min-h-[14rem] w-[80vw]  rounded-md spacing-2 m-2 border-[1px] p-4 shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="flex-col justify-center items-center">
+                                        <input id = "c-<%=cartItems[i]._id%>" <%=cartItems[i].isChecked ? `checked` : ''%> type="checkbox" class=""
+                                            onchange="check(this, `<%=cartItems[i].product._id%>`)" />
+                                    </div>
+                                    <div class="flex justify-center content-center">
+                                        <img class="h-[15rem]" src="<%=cartItems[i].product.image%>" />
+                                    </div>
+                                    <div class="flex-col items-center justify-center mx-2">
+                                        <h1 class="m-8 font-bold text-2xl">
+                                            <%=cartItems[i].product.name %>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1 class="text-center text-xl font-bold">
+                                        Rs.<%=cartItems[i].product.price %>
+                                    </h1>
+                                    <div class="flex-col items-center justify-around mx-20">
+                                        <!-- <p class="font-bold">Quantity</p> -->
+                                        <div class="flex justify-around m-4 font-bold text-2xl"
+                                            id="<%=cartItems[i].product.id%>">
+                                            <button
+                                                class='font-bold text-xl mx-2 px-2 py-[3px] border-2 border-green-800 rounded-[50%] hover:bg-green-800 hover:text-white'
+                                                onclick="decQuantity(this);sumTotal(document.getElementById(`c-<%=cartItems[i]._id%>`),`<%=JSON.stringify(cartItems[i])%>`)"><i
+                                                    class="fa fa-minus" aria-hidden="true"></i></button>
+                                            <p id="q-<%=cartItems[i]._id%>" class='quantity'>
+                                                <%=cartItems[i].quantity%>
+                                            </p>
+                                            <button
+                                                class='font-bold text-xl mx-2 px-[8px] border-2 border-green-800 rounded-[50%] hover:bg-green-800 hover:text-white'
+                                                onclick="incQuantity(this)"><i class="fa fa-plus"
+                                                    aria-hidden="true"></i></button>
+                                        </div>
+                                        <div class="h-[4rem] flex justify-end">
+                                            <div>
+                                                <button onclick="handlePop(`<%=JSON.stringify(cartItems[i].product)%>`)"
+                                                    class="text-green-800 font-bold border-2 border-green-800 rounded-md px-4 py-2 hover:bg-green-800 hover:text-white px-2 m-2"
+                                                    id=<%=i %>>View
+                                                    Details</button>
+                                            </div>
+                                            <form method="POST" action="/cart/deleteProduct">
+                                                <input type="hidden" name="_id" value="<%=cartItems[i].product._id%>">
+                                                <button type="submit"
+                                                    class="text-red-500 font-bold border-2 border-red-500 rounded-md px-4 py-2 hover:bg-red-500 hover:text-white px-2 m-2">Delete
+                                                    Product<button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <% } %>
+                        <div>
+                            <form action = "/cart/checkout">
+                                <button type = "submit"
+                                class="text-green-800 font-bold border-2 border-green-800 rounded-md px-4 py-2 hover:bg-green-800 hover:text-white px-2 m-2"
+                                id=<%=i %>>Checkout</button>
+                            </form>
+                        </div>
+                            <%}else{%>
+                                <h1>Nothing in the cart, go back to home page to add products in your cart.</h1>
+                                <%}%>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    async function placeOrder(){
+        const response = await fetch('http://localhost:5000/cart/placeOrder');
+    }
+    // function sumTotal(check, obj) {
+    //     // quantity = Number(quantity);
+    //     // price = Number(price)
+    //     obj = JSON.parse(obj);
+    //     console.log(obj)
+    //     let quantity = Number(document.getElementById(`q-${obj._id}`).innerText);
+    //     if(quantity<1) 
+    //         return
+    //     let price = obj.product.price * quantity;
+    //     // console.log("this is q: " + quantity)
+    //     if (check.checked) {
+    //         total += price;
+    //     }
+    //     else {
+    //         total -= price;
+    //     }
+    //     console.log("ye hai total vro : " + total)
+    //     const sumTotal = document.getElementById('sumTotal');
+    //     sumTotal.value = 0;
+    //     sumTotal.value = total;
+    // }
+
+    async function check(element, _id){
+        const obj = {_id,check: element.checked};
+        const response = await fetch('http://localhost:5000/cart/check',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj)
+        });
+    }
+
+
+    async function incQuantity(element) {
+        const _id = element.parentNode.id;
+        const parent = document.getElementById(_id);
+        console.log("This is not it - " + parent.querySelector('.quantity').innerText);
+        // let quantity = Number(parent.childNodes[1].innerText);
+        let quantity = parseInt(parent.querySelector('.quantity').innerText);
+        quantity += 1;
+        parent.querySelector('.quantity').innerHTML = quantity;
+        // const response = await fetch('/incQuantity', {
+        //     method: 'POST',
+        //     header: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body : JSON.stringify({_id: 5}),
+        // });
+        // const data = await response.json();
+        // console.log(data);
+        fetch("/cart/incQuantity", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ _id: _id }),
+        })
+    }
+
+    async function decQuantity(element) {
+        const _id = element.parentNode.id;
+        const parent = document.getElementById(_id);
+        let quantity = parseInt(parent.querySelector('.quantity').innerText);
+        if (quantity == 1)
+            return;
+        quantity -= 1;
+        parent.querySelector('.quantity').innerHTML = quantity;
+        fetch("/cart/decQuantity", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ _id: _id }),
+        })
+    }
+
+    const handlePop = (product) => {
+        product = JSON.parse(product)
+        const { _id, name, price, detail, quantity, image } = product;
+        const popup = `<div id = 'pop-${_id}' class="pop p-4 bg-white shadow-2xl rounded-lg fixed border-2 top-[8rem] left-[10rem] right-[10rem] bottom-[8rem] overflow-auto"
+                                id="pop-<%=i%>">
+                                <div class="font-bold text-xl hover:cursor-pointer flex justify-left" id="close-<%=i%>"
+                                    onclick="this.parentNode.remove();">
+                                    X
+                                </div>
+                                <div class="flex justify-center content-center rounded-md">
+                                    <img class="h-[25rem]" src = "${image}"/>
+                                </div>
+                                <div>
+                                    <h1 class="text-center font-bold text-2xl">
+                                         ${name} 
+                                    </h1>
+                                </div>
+                                <div class = "text-md p-8">
+                                    <p>
+                                        ${detail}
+                                    </p>
+                                </div>
+                        </div>`
+        const div = document.createElement('div')
+        div.innerHTML = popup;
+        document.body.appendChild(div);
+    }
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "name": "Macbook air",
+    "detail": "MacBook Air with M1 is an incredibly portable laptop — it’s nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all‑day battery life, this Air moves at the speed of lightness.",
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=820&q=80"
+  },
+  {
+    "id": 1,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Macbook air",
+    "detail": "MacBook Air with M1 is an incredibly portable laptop — it’s nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all‑day battery life, this Air moves at the speed of lightness.",
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=820&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Macbook air",
+    "detail": "MacBook Air with M1 is an incredibly portable laptop — it’s nimble and quick, with a silent, fanless design and a beautiful Retina display. Thanks to its slim profile and all‑day battery life, this Air moves at the speed of lightness.",
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=820&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Asus TUF A15",
+    "detail": "Play and travel without worries with the ASUS 15.6 TUF Gaming A15 Series TUF506IU Gaming Laptop. Built for durability, TUF Gaming laptops undergo extra durability tests to face a bit more than your typical everyday use. Specs-wise, it's equipped with a 2.9 GHz AMD Ryzen 7 4800H eight-core processor, 16GB of DDR4 memory, a 512GB NVMe",
+    "image": "https://img6.gadgetsnow.com/gd/images/products/additional/large/G373802_View_1/computer-laptop/laptops/asus-tuf-gaming-a15-fa506icb-hn005w-amd-ryzen-7-4800h-15-6-inches-gaming-laptop-8gb-512gb-ssd-windows-11-graphite-black-2-3-kg-.jpg"
+  }
+]

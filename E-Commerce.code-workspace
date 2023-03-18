@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "E-Commerce",
+			"path": "."
+		},
+		{
+			"name": "Models",
+			"path": "../E-Commerce (Mongo)/Models"
+		}
+	],
+	"settings": {}
+}

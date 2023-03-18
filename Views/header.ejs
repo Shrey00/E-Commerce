@@ -1,0 +1,51 @@
+
+<div id="header" class="h-[4rem] flex justify-between items-center bg-green-800 text-white">
+    <form method = "GET" action="/home">
+        <button type = "submit"><h1 id="navHead" class="px-4 text-xl font-bold">E-Commerce</h1></button>
+    </form>
+    <div class="flex justify-center items-center">
+        <% if (loggedIn) { %>
+            <form method='POST' action='/logout'>
+                <button class="px-4 py-2 border-2 border-white rounded-md mx-2 hover:bg-white hover:text-green-800 ">Logout</button>
+            </form>
+            <form method='GET' action='/accountSettings'>
+                <button class="px-4 py-2 border-2 border-white rounded-md mx-2 hover:bg-white hover:text-green-800 ">Account Settings</button>
+            </form>
+            <% if (isAdmin) { %>
+                <form method='GET' action='/adminPanel'>
+                    <button class="px-4 py-2 border-2 border-white rounded-md mx-2 hover:bg-white hover:text-green-800 ">Admin Panel</button>
+                </form>
+                <% } %>
+                    <% } else {%>
+                        <form method='GET' action='/login'>
+                            <button class="px-4 py-2 border-2 border-white rounded-md mx-2 hover:bg-white hover:text-green-800 ">Login</button>
+                        </form>
+                        <% } %>
+                        <form method = "GET" action = "/cart">
+                            <button><i type = 'submit' class="fa fa-shopping-cart text-4xl px-4 text-white hover:text-green-300" aria-hidden="true"></i></button>
+                        </form>
+
+    </div>
+</div>
+
+<style>
+    /* #navHead {
+        font-size: 1rem;
+        text-align: center;
+        color: white;
+        margin: 8px;
+    }
+
+    #header {
+        background-color: green;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .buttons {
+        padding: 5px 10px;
+        background-color: lightgreen;
+        border-radius: 4px;
+        margin: 5px;
+    } */
+</style>

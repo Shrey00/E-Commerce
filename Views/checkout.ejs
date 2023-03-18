@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Checkout</title>
+</head>
+
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+
+    <div>
+        <div class="min-h-[80%] w-[92%] m-auto">
+            <input id="sumTotal" type="number" disabled />
+            <ul class="h-[100%] flex flex-wrap">
+                <%if(cartItems.length){ %>
+                    <h1 class="font-bold text-3xl m-4">
+                        Products Selected
+                    </h1>
+                    <%for(var i=0 ;i<cartItems.length; ++i){ %>
+                        <li class="min-h-[14rem] w-[80vw]  rounded-md spacing-2 m-2 border-[1px] p-4 shadow-lg">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="flex justify-center content-center">
+                                        <img class="h-[15rem]" src="<%=cartItems[i].product.image%>" />
+                                    </div>
+                                    <div class="flex-col items-center justify-center mx-2">
+                                        <h1 class="m-8 font-bold text-2xl">
+                                            <%=cartItems[i].product.name %>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h1 class="text-center text-xl font-bold">
+                                        Rs.<%=cartItems[i].product.price %>
+                                    </h1>
+                                    <div class="flex-col items-center justify-around mx-20">
+                                        <!-- <p class="font-bold">Quantity</p> -->
+                                        <div class="flex justify-around m-4 font-bold text-2xl">
+                                            <p id="q-<%=cartItems[i]._id%>" class='quantity'>
+                                                <%=cartItems[i].quantity%>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <% } %>
+                        <div class = "flex justify-between w-[100%]">
+                            <h1 class="text-xl font-bold">Total Amount : Rs.<%=total%></h1>
+                            <form action = "/cart/checkout">
+                                <button type = "submit"
+                                class="text-green-800 text-xl font-bold border-2 border-green-800 rounded-md px-6 py-4 hover:bg-green-800 hover:text-white px-2 m-2"
+                                id=<%=i %>>Place Order</button>
+                            </form>
+                        </div>
+                            <%}else{%>
+                                <h1>Nothing product selected, go back and select products from the Cart.</h1>
+                                <%}%>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    
+    const handlePop = (product) => {
+        product = JSON.parse(product)
+        const { _id, name, price, detail, quantity, image } = product;
+        const popup = `<div id = 'pop-${_id}' class="pop p-4 bg-white shadow-2xl rounded-lg fixed border-2 top-[8rem] left-[10rem] right-[10rem] bottom-[8rem] overflow-auto"
+                                id="pop-<%=i%>">
+                                <div class="font-bold text-xl hover:cursor-pointer flex justify-left" id="close-<%=i%>"
+                                    onclick="this.parentNode.remove();">
+                                    X
+                                </div>
+                                <div class="flex justify-center content-center rounded-md">
+                                    <img class="h-[25rem]" src = "${image}"/>
+                                </div>
+                                <div>
+                                    <h1 class="text-center font-bold text-2xl">
+                                         ${name} 
+                                    </h1>
+                                </div>
+                                <div class = "text-md p-8">
+                                    <p>
+                                        ${detail}
+                                    </p>
+                                </div>
+                        </div>`
+        const div = document.createElement('div')
+        div.innerHTML = popup;
+        document.body.appendChild(div);
+    }
+</script>
+
+</html>
